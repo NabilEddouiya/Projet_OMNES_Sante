@@ -1,0 +1,56 @@
+h1{
+	text-align: center;
+    font-size: 40px;
+}
+p{
+	text-align: center;
+    font-size: 14px;
+}
+
+#header {
+	background-color: lightblue;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	height: 30px;
+	width: 1495px;
+	padding: 5px;
+}
+
+#carroussel {
+	line-height: 25px;
+	background-color: yellow;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	height: 560px;
+	width: 493px;
+	line-height: 100px;
+	float: left;
+	padding: 5px;
+	font-size: 25px;
+}
+
+#section {
+	background-color: white;
+	color: black;
+	height: 560px;
+	width: 990px;
+	display: table-cell;
+	vertical-align: middle;
+	line-height: 285px;
+	float: left;
+	padding: 5px;
+	font-size: 20px;
+	text-align: center;
+	font-size: 60px;
+}
+
+#footer {
+	background-color: #cccccc;
+	color: black;
+	text-align: center;
+	clear: both;
+	width: 1503px;
+    height: 50px;
+}
