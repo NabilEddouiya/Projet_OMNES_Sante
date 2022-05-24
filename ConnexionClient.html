@@ -8,5 +8,33 @@
     </head>
     <body>
         <h1>Connexion Client</h1>
+        <table border="1">
+            <form action="Recherche.php" method="post">
+                <tr>
+                    <td align="center">Prénom :</td>
+                    <td align="center"><input type="text" name="Prenom"></td>
+                </tr>
+                <tr>
+                    <td align="center">Nom :</td>
+                    <td align="center"><input type="text" name="Nom"></td>
+                </tr>
+                <tr>
+                    <td align="center">Adresse :</td>
+                    <td align="center"><input type="text" name="Adresse"></td>
+                </tr>
+                <tr>
+                    <td align="center">Email :</td>
+                    <td align="center"><input type="text" name="Email"></td>
+                </tr>
+                <tr>
+                    <td align="center">Carte Vitale :</td>
+                    <td align="center"><input type="text" name="CarteVitale"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center"><input type="submit" name="submit" value="Connexion"></td>
+                </tr>
+            </form>
+        </table>
+        <p>Vous n'avez pas de compte.<a href="CreationCompteClient.html">Cliquez-ici pour en créer un</a></p>
 	</body>
 </html>

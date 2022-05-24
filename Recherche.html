@@ -5,27 +5,13 @@
         <meta name="viewport" content="width=device-width,
         initial-scale=1">
         <title>Recherche</title>
+        </script>
     </head>
     <body>
         <h1>Recherche</h1>
         <form action="Recherche.php" method="post">
-            <table>
-                <tr>
-                    <td>Nom du Medecin recherché:</td>
-                    <td><input type="text" name="Medecin"></td>
-                </tr>
-                <tr>
-                    <td>Spécialité recherchée:</td>
-                    <td><input type="text" name="Specialite"></td>
-                </tr>
-                <tr>
-                    <td>Etablissement:</td>
-                    <td><input type="text" name="Etablissement"></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center"><input type="submit" name="soumettre" value="Rechercher"></td>
-                </tr>
-            </table>
+                <input type="text" id="Recherche" name="Recherche" value="Nom ou Spécialité ou Etablissement" size="30" onFocus="javascript:this.value=''" >
+                <input type="submit" name="soumettre" value="Rechercher">
         </form>
 	</body>
 </html>
