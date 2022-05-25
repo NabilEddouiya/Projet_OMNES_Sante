@@ -58,13 +58,13 @@
             $age = $date2->diff($date1)->format("%y");
             $age=$age-2;
 
-            $sql1 = "INSERT INTO client (Email,Prenom,Nom,MotdePasse,Age,DatedeNaissance,Adresse,Telephone,Ville,Pays,CarteVitale,CB) VALUES('$email','$prenom','$nom','$mdp','$age','$datedenaissance','$adresse','$telephone','$ville','$pays','$cartevitale',NULL)";
+            $sql1 = "INSERT INTO client (Email,Prenom,Nom,MotdePasse,Age,DatedeNaissance,Adresse,Telephone,Ville,Pays,CarteVitale) VALUES('$email','$prenom','$nom','$mdp','$age','$datedenaissance','$adresse','$telephone','$ville','$pays','$cartevitale')";
 
             $resultat = mysqli_query($db_handle, $sql1);
 
             $sql1 = "SELECT * FROM client WHERE Email='$email'";
             $resultat = mysqli_query($db_handle, $sql1);
-            
+
             if(mysqli_num_rows($resultat)!=0) {
                 echo "ajout réussi";
             }

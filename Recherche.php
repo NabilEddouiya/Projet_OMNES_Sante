@@ -21,7 +21,6 @@
 		$resultat = mysqli_query($db_handle, $sql1);
 
         if(mysqli_num_rows($resultat)!=0) {
-        //if($data = mysqli_fetch_assoc($resultat) != false) {
             echo "<h1>Affichage des médecins</h1>";
 		    echo "<p>Requete: " . $sql1 . "<br>";
 		    echo "Resultat: </p>";
