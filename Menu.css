@@ -40,7 +40,7 @@ input[type=submit]:hover{
 	display: table-cell;
 	vertical-align: middle;
 	height: 100px;
-	width: 1495px;
+	width: 100%;
 	line-height: 100px;
 	float: left;
 	padding: 5px;
@@ -51,7 +51,7 @@ input[type=submit]:hover{
 	background-color: white;
 	color: black;
 	height: 330px;
-	width: 1495px;
+	width: 100%;
 	display: table-cell;
 	vertical-align: middle;
 	line-height: 285px;
@@ -68,5 +68,5 @@ input[type=submit]:hover{
 	text-align: center;
 	clear: both;
 	padding: 10px;
-	width: 1490px;
+	width: 100%;
 }
