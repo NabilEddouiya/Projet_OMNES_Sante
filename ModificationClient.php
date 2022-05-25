@@ -10,6 +10,7 @@
     $telephone = isset($_POST["Telephone"])? $_POST["Telephone"]: "";
     $ville = isset($_POST["Ville"])? $_POST["Ville"]: "";
     $pays = isset($_POST["Pays"])? $_POST["Pays"]: "";
+    $cartevitale = isset($_POST["CarteVitale"])? $_POST["CarteVitale"]: "";
     $choix = isset($_POST["choix"])? $_POST["choix"]: "";
     $age = 0;
     $trouvee=false;
@@ -20,7 +21,7 @@
 		$erreur .= "Le champ Email est vide. <br>";
 	}
 	if($erreur == "") {
-        echo"<h1>Modification Administrateur</h1>";
+        echo"<h1>Modification Client</h1>";
         //identifier votre BDD
         $database = "omnes_sante";
 
@@ -31,7 +32,7 @@
         if ($db_found) { 
             switch($choix) {
                 case "Ajouter":
-                    $sql1 = "SELECT Email FROM administrateur";
+                    $sql1 = "SELECT Email FROM client";
                     $resultat = mysqli_query($db_handle, $sql1);
 
                     while($data = mysqli_fetch_assoc($resultat)) {
@@ -65,18 +66,21 @@
                         if($pays == "") {
                             $information .= "Le champ Pays est vide. <br>";
                         }
+                        if($cartevitale == "") {
+                            $information .= "Le champ Carte vitale est vide. <br>";
+                        }
                         if($information == "") {
                             $date1 = new DateTime($datedenaissance);
                             $date = date('d-m-y');
                             $date2 = new DateTime($date);
                             $age = $date2->diff($date1)->format("%y");
                             $age=$age-2;
-                            $sql1 = "INSERT INTO administrateur (Email,Prenom,Nom,MotdePasse,Age,DatedeNaissance,Adresse,Telephone,Ville,Pays) VALUES('$email','$prenom','$nom','$mdp','$age','$datedenaissance','$adresse','$telephone','$ville','$pays')";                        
+                            $sql1 = "INSERT INTO client (Email,Prenom,Nom,MotdePasse,Age,DatedeNaissance,Adresse,Telephone,Ville,Pays,CarteVitale) VALUES('$email','$prenom','$nom','$mdp','$age','$datedenaissance','$adresse','$telephone','$ville','$pays','$cartevitale')";                        
                             $resultat = mysqli_query($db_handle, $sql1);
                             echo "Le champ a été ajouté";
 
 
-                            $sql1 = "SELECT * FROM administrateur";
+                            $sql1 = "SELECT * FROM client";
 
                             $resultat = mysqli_query($db_handle, $sql1);
 
@@ -93,6 +97,7 @@
                                 echo "<th>" . "Téléphone" . "</th>";
                                 echo "<th>" . "Ville" . "</th>";
                                 echo "<th>" . "Pays" . "</th>";
+                                echo "<th>" . "Carte Vitale" . "</th>";
 
                                 echo "</tr>";
 
@@ -108,6 +113,7 @@
                                     echo "<td>" . $data["Telephone"] . "</td>";
                                     echo "<td>" . $data["Ville"] . "</td>";
                                     echo "<td>" . $data["Pays"] . "</td>";
+                                    echo "<td>" . $data["CarteVitale"] . "</td>";
                                     echo "</tr>";
                                 }
                                 echo "</table>";
@@ -126,7 +132,7 @@
                     break;
 
                 case "Modifier":
-                    $sql1 = "SELECT Email FROM administrateur";
+                    $sql1 = "SELECT Email FROM client";
                     $resultat = mysqli_query($db_handle, $sql1);
 
                     while($data = mysqli_fetch_assoc($resultat)) {
@@ -160,18 +166,21 @@
                         if($pays == "") {
                             $information .= "Le champ Pays est vide. <br>";
                         }
+                        if($cartevitale == "") {
+                            $information .= "Le champ Carte Vitale est vide. <br>";
+                        }
                         if($information == "") {
                             $date1 = new DateTime($datedenaissance);
                             $date = date('d-m-y');
                             $date2 = new DateTime($date);
                             $age = $date2->diff($date1)->format("%y");
                             $age=$age-2;
-                            $sql1 = "UPDATE administrateur SET Email='$email',Prenom='$prenom',Nom='$nom',MotdePasse='$mdp',Age='$age',DatedeNaissance='$datedenaissance',Adresse='$adresse',Telephone='$telephone',Ville='$ville',Pays='$pays' WHERE Email='$email'";                        
+                            $sql1 = "UPDATE client SET Email='$email',Prenom='$prenom',Nom='$nom',MotdePasse='$mdp',Age='$age',DatedeNaissance='$datedenaissance',Adresse='$adresse',Telephone='$telephone',Ville='$ville',Pays='$pays',CarteVitale='$cartevitale' WHERE Email='$email'";                        
                             $resultat = mysqli_query($db_handle, $sql1);
                             echo "Le champ a été modifié";
 
 
-                            $sql1 = "SELECT * FROM administrateur";
+                            $sql1 = "SELECT * FROM client";
 
                             $resultat = mysqli_query($db_handle, $sql1);
 
@@ -188,6 +197,7 @@
                                 echo "<th>" . "Téléphone" . "</th>";
                                 echo "<th>" . "Ville" . "</th>";
                                 echo "<th>" . "Pays" . "</th>";
+                                echo "<th>" . "Carte Vitale" . "</th>";
 
                                 echo "</tr>";
 
@@ -203,6 +213,7 @@
                                     echo "<td>" . $data["Telephone"] . "</td>";
                                     echo "<td>" . $data["Ville"] . "</td>";
                                     echo "<td>" . $data["Pays"] . "</td>";
+                                    echo "<td>" . $data["CarteVitale"] . "</td>";
                                     echo "</tr>";
                                 }
                                 echo "</table>";
@@ -222,7 +233,7 @@
 
 
                 case "Supprimer":
-                    $sql1 = "SELECT Email FROM administrateur";
+                    $sql1 = "SELECT Email FROM client";
                     $resultat = mysqli_query($db_handle, $sql1);
 
                     while($data = mysqli_fetch_assoc($resultat)) {
@@ -233,12 +244,12 @@
 
                     if($trouvee == true) {
 
-                        $sql1 = "DELETE FROM administrateur WHERE Email='$email'";                        
+                        $sql1 = "DELETE FROM client WHERE Email='$email'";                        
                         $resultat = mysqli_query($db_handle, $sql1);
-                        echo "Le champ a été supprimé";
+                        echo "Le champ a été suppimé";
 
 
-                        $sql1 = "SELECT * FROM administrateur";
+                        $sql1 = "SELECT * FROM client";
 
                         $resultat = mysqli_query($db_handle, $sql1);
 
@@ -255,6 +266,7 @@
                             echo "<th>" . "Téléphone" . "</th>";
                             echo "<th>" . "Ville" . "</th>";
                             echo "<th>" . "Pays" . "</th>";
+                            echo "<th>" . "Carte Vitale" . "</th>";
 
                             echo "</tr>";
 
@@ -270,6 +282,7 @@
                                 echo "<td>" . $data["Telephone"] . "</td>";
                                 echo "<td>" . $data["Ville"] . "</td>";
                                 echo "<td>" . $data["Pays"] . "</td>";
+                                echo "<td>" . $data["CarteVitale"] . "</td>";
                                 echo "</tr>";
                             }
                             echo "</table>";
