@@ -15,7 +15,7 @@
     $sql2 = "";
     $disable='disabled="disabled"';
 
-    $hours=array("8:00","8:20","8:40","9:00","9:20","9:40","10:00","10:20","10:40","11:00","11:20","11:40","13:00","13:20","13:40","14:00","14:20","14:40","15:00","15:20","15:40")
+    $hours=array("8:00","8:20","8:40","9:00","9:20","9:40","10:00","10:20","10:40","11:00","11:20","11:40","13:00","13:20","13:40","14:00","14:20","14:40","15:00","15:20","15:40");
 
 	//si la BDD existe
 	if ($db_found) {        
@@ -72,22 +72,22 @@
                     else{
                         foreach($hours as $h){
                             //trouver la condition exacte a savoir le bon format de jour mois année heure min sec pour pouvoir comparer
-                            if(){
+                            /*if(){
                                 echo '      <tr>';
                                 echo '        <input type="submit" value="'.$h.'"/><br />';
                                 echo '      </tr>';
                             }
-                            else{
+                            else{*/
                                 echo '      <tr>';
                                 echo '        <input type="submit" value="'.$h.'" '.$disable.'/><br />';
                                 echo '      </tr>';
-                                $data2=mysqli_fetch_assoc($resultat2);
+                                //$data2=mysqli_fetch_assoc($resultat2);
                             }                           
                             
 
                         }
 
-                    }
+                    
 
                     $data1=mysqli_fetch_assoc($resultat1);
 
@@ -100,16 +100,8 @@
         }
 
         
-	}else {
+	}
+    else {
 		echo "Connexion non réussie <br>";
 	}
-
-	if($trouvee == true) {
-       // sleep(2);
-        //  header('Location: RechercheTrouvee.html');
-	} else {
-		sleep(2);
-        header('Location: RechercheErreur.html');
-	}
-    exit();
 ?>
