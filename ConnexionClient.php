@@ -1,4 +1,7 @@
 <?php
+    //Start the session
+    session_start();
+
     echo '<meta charset="utf-8">';  
 	//declaration des variables
 	$email = isset($_POST["Email"])? $_POST["Email"]: "";
@@ -27,7 +30,9 @@
             $resultat = mysqli_query($db_handle, $sql1);
 
             if(mysqli_num_rows($resultat)!=0) {
-                echo "connexion";
+                sleep(1);
+                $_SESSION["client"]=$email;    
+                header('Location: ChoixClient.php');
             }
             else {
                 echo "rien trouvé";

@@ -53,7 +53,7 @@
                     echo "<tr>";
                     echo "<td>" . $data["ID"] . "</td>";
                     echo "<td>" . $data["Prenom"] . "</td>";
-                    echo "<td>" . $data["Nom"] . "</td>";
+                    echo "<td>" . $data["Nom_m"] . "</td>";
                     echo "<td>" . $data["Email"] . "</td>";
                     echo "<td>" . $data["MotdePasse"] . "</td>";
                     echo "<td>" . $data["Age"] . "</td>";

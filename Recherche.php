@@ -28,7 +28,7 @@
             echo "<tr>";
             echo "<th>" . "ID" . "</th>";
             echo "<th>" . "Prenom" . "</th>";
-            echo "<th>" . "Nom" . "</th>";
+            echo "<th>" . "Nom_m" . "</th>";
             echo "<th>" . "Email" . "</th>";
             echo "<th>" . "Mot de Passe" . "</th>";
             echo "<th>" . "Age" . "</th>";
@@ -49,7 +49,7 @@
                 echo "<tr>";
                 echo "<td>" . $data["ID"] . "</td>";
                 echo "<td>" . $data["Prenom"] . "</td>";
-                echo "<td>" . $data["Nom"] . "</td>";
+                echo "<td>" . $data["Nom_m"] . "</td>";
                 echo "<td>" . $data["Email"] . "</td>";
                 echo "<td>" . $data["MotdePasse"] . "</td>";
                 echo "<td>" . $data["Age"] . "</td>";
@@ -104,7 +104,7 @@
                     echo "<tr>";
                     echo "<td>" . $data["ID"] . "</td>";
                     echo "<td>" . $data["Prenom"] . "</td>";
-                    echo "<td>" . $data["Nom"] . "</td>";
+                    echo "<td>" . $data["Nom_m"] . "</td>";
                     echo "<td>" . $data["Email"] . "</td>";
                     echo "<td>" . $data["MotdePasse"] . "</td>";
                     echo "<td>" . $data["Age"] . "</td>";
@@ -178,9 +178,6 @@
 
                 while($data = mysqli_fetch_assoc($resultat)) {
                     echo "<tr>";
-                    /*echo "<td>" . $data["Composition_ID"] . "</td>";
-                    echo "<td>" . $data["Laboratoire_ID"] . "</td>";
-                    echo "<td>" . $data["NomService"] . "</td>";*/
                     echo "<td>" . $data["Nom"] . "</td>";
                     echo "<td>" . $data["ReglesAvant"] . "</td>";
                     echo "<td>" . $data["ReglesApres"] . "</td>";
