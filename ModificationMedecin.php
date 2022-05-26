@@ -95,7 +95,7 @@
                             $date2 = new DateTime($date);
                             $age = $date2->diff($date1)->format("%y");
                             $age=$age-2;
-                            $sql1 = "INSERT INTO medecin (ID,Prenom,Nom,Email,MotdePasse,Age,DatedeNaissance,Telephone,Adresse,Ville,Pays,Specialite,Photo,CV,Salle,Calendrier) VALUES('$ID','$prenom','$nom','$email','$mdp','$age','$datedenaissance','$telephone','$adresse','$ville','$pays','$specialite','$photo','$CV','$salle','$calendrier')";                        
+                            $sql1 = "INSERT INTO medecin (ID,Prenom,Nom_m,Email,MotdePasse,Age,DatedeNaissance,Telephone,Adresse,Ville,Pays,Specialite,Photo,CV,Salle,Calendrier) VALUES('$ID','$prenom','$nom','$email','$mdp','$age','$datedenaissance','$telephone','$adresse','$ville','$pays','$specialite','$photo','$CV','$salle','$calendrier')";                        
                             $resultat = mysqli_query($db_handle, $sql1);
                             echo "Le champ a été ajouté";
 
@@ -129,7 +129,7 @@
                                     echo "<tr>";
                                     echo "<td>" . $data["ID"] . "</td>";
                                     echo "<td>" . $data["Prenom"] . "</td>";
-                                    echo "<td>" . $data["Nom"] . "</td>";
+                                    echo "<td>" . $data["Nom_m"] . "</td>";
                                     echo "<td>" . $data["Email"] . "</td>";
                                     echo "<td>" . $data["MotdePasse"] . "</td>";
                                     echo "<td>" . $data["Age"] . "</td>";
@@ -219,7 +219,7 @@
                             $date2 = new DateTime($date);
                             $age = $date2->diff($date1)->format("%y");
                             $age=$age-2;
-                            $sql1 = "UPDATE medecin SET ID='$ID',Prenom='$prenom',Nom='$nom',Email='$email',MotdePasse='$mdp',Age='$age',DatedeNaissance='$datedenaissance',Telephone='$telephone',Adresse='$adresse',Ville='$ville',Pays='$pays',Specialite='$specialite',Photo='$photo',CV='$CV',Salle='$salle',Calendrier='$calendrier' WHERE ID='$ID'";                        
+                            $sql1 = "UPDATE medecin SET ID='$ID',Prenom='$prenom',Nom_m='$nom',Email='$email',MotdePasse='$mdp',Age='$age',DatedeNaissance='$datedenaissance',Telephone='$telephone',Adresse='$adresse',Ville='$ville',Pays='$pays',Specialite='$specialite',Photo='$photo',CV='$CV',Salle='$salle',Calendrier='$calendrier' WHERE ID='$ID'";                        
                             $resultat = mysqli_query($db_handle, $sql1);
                             echo "Le champ a été modifié";
 
@@ -252,7 +252,7 @@
                                     echo "<tr>";
                                     echo "<td>" . $data["ID"] . "</td>";
                                     echo "<td>" . $data["Prenom"] . "</td>";
-                                    echo "<td>" . $data["Nom"] . "</td>";
+                                    echo "<td>" . $data["Nom_m"] . "</td>";
                                     echo "<td>" . $data["Email"] . "</td>";
                                     echo "<td>" . $data["MotdePasse"] . "</td>";
                                     echo "<td>" . $data["Age"] . "</td>";
@@ -309,7 +309,7 @@
                             echo '<table border = "1">';
                                 echo "<th>" . "ID" . "</th>";
                                 echo "<th>" . "Prenom" . "</th>";
-                                echo "<th>" . "Nom" . "</th>";
+                                echo "<th>" . "Nom_m" . "</th>";
                                 echo "<th>" . "Email" . "</th>";
                                 echo "<th>" . "Mot de Passe" . "</th>";
                                 echo "<th>" . "Age" . "</th>";
@@ -329,7 +329,7 @@
                                 echo "<tr>";
                                     echo "<td>" . $data["ID"] . "</td>";
                                     echo "<td>" . $data["Prenom"] . "</td>";
-                                    echo "<td>" . $data["Nom"] . "</td>";
+                                    echo "<td>" . $data["Nom_m"] . "</td>";
                                     echo "<td>" . $data["Email"] . "</td>";
                                     echo "<td>" . $data["MotdePasse"] . "</td>";
                                     echo "<td>" . $data["Age"] . "</td>";
