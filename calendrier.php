@@ -62,20 +62,26 @@ if ($db_found) {
             //si travail ce jour la
             else {
                 //si pas de rdv ce jour la affichage normale avec bouton submit disponible
-                if ($data1['WeekDay'] != $i) {
-                    foreach ($hours as $h) {
+                if ($data2['WeekDay'] != $i ) {
+                    for ($j = 0; $j < COUNT($hours); $j++) {
+                        if($data1['morning'] != 0 && $j < 12||$data1['afternoon'] != 0 && $j >= 12){
                         echo '      <tr>';
-                        echo '        <input type="submit" value="' . $h . '"/><br />';
+                        echo '        <input type="submit" value="' . $hours[$j] . '"/><br />';
                         echo '      </tr>';
+                        }else {
+                            echo '      <tr>';
+                            echo '        <input type="submit" value="' . $hours[$j] . '"' . $disable . '/><br />';
+                            echo '      </tr>';
+                        }
                     }
                 } else {
                     for ($j = 0; $j < COUNT($hours); $j++) {
 
-                        if ($data2['Creneau']-1 == $j && $data2['WeekDay'] == $i ) {
+                        if ($data2['Creneau'] - 1 == $j) {
                             echo '      <tr>';
                             echo '        <input type="submit" value="' . $hours[$j] . '"' . $disable . '/><br />';
                             echo '      </tr>';
-                            $data2=mysqli_fetch_assoc($resultat2);
+                            $data2 = mysqli_fetch_assoc($resultat2);
                         } else {
                             echo '      <tr>';
                             echo '        <input type="submit" value="' . $hours[$j] . '" /><br />';
@@ -86,10 +92,6 @@ if ($db_found) {
             }
             echo '</table>';
             echo '</td>';
-
-
-
-            
         }
     } else {
         echo "Ce medecin  n'a pas d'heure de travail cette semaine.";
@@ -97,4 +99,5 @@ if ($db_found) {
 } else {
     echo "Connexion non réussie <br>";
 }
+
 ?>
