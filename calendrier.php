@@ -63,6 +63,7 @@ if ($db_found) {
             else {
                 //si pas de rdv ce jour la affichage normale avec bouton submit disponible
                 if ($data2['WeekDay'] != $i ) {
+                    //verifie si il travaille le matin ou l'apres-midi et affiche en consequence
                     for ($j = 0; $j < COUNT($hours); $j++) {
                         if($data1['morning'] != 0 && $j < 12||$data1['afternoon'] != 0 && $j >= 12){
                         echo '      <tr>';
@@ -77,7 +78,7 @@ if ($db_found) {
                 } else {
                     for ($j = 0; $j < COUNT($hours); $j++) {
 
-                        if ($data2['Creneau'] - 1 == $j) {
+                        if ($data2['Creneau'] - 1 == $j && $data2['WeekDay']==$i) {
                             echo '      <tr>';
                             echo '        <input type="submit" value="' . $hours[$j] . '"' . $disable . '/><br />';
                             echo '      </tr>';
@@ -92,6 +93,7 @@ if ($db_found) {
             }
             echo '</table>';
             echo '</td>';
+            $i++;
         }
     } else {
         echo "Ce medecin  n'a pas d'heure de travail cette semaine.";
