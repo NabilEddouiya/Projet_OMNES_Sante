@@ -17,11 +17,12 @@
 
     if ($db_found) { 
         echo "<h1>Rendez-vous à venir</h1>";
-        $date = date('d-m-y');
-        $date2 = new DateTime($date);
-        echo $date;
-        //PROBLEME
-        $sql1 = "SELECT DISTINCT c.ID_Consultation,m.Nom_m,cl.Nom,c.Date,c.HeureDebut,c.HeureFin FROM consultation c, client cl, medecin m WHERE (cl.Email=c.EmailClient AND cl.Email='$email' AND c.Medecin_ID=m.ID AND c.Date<'$date')";
+        $date = date('y-m-d');
+        //$date2 = new DateTime($date);
+        $timestamp = strtotime($date);
+        $newdate = date("20y-m-d",$timestamp);
+
+        $sql1 = "SELECT DISTINCT c.ID_Consultation,m.Nom_m,cl.Nom,c.Date,c.HeureDebut,c.HeureFin FROM consultation c, client cl, medecin m WHERE (cl.Email=c.EmailClient AND cl.Email='$email' AND c.Medecin_ID=m.ID AND c.Date>'$newdate')";
         $resultat = mysqli_query($db_handle, $sql1);
 
         if(mysqli_num_rows($resultat)!=0) {
@@ -55,7 +56,7 @@
             echo "</table> <br><br>";
         }
         else {
-            echo "pas de résultat";
+            echo "pas de consultation à venir";
         }
         
         echo "<form action='ModificationRdvaVenir.php' method='post'>";

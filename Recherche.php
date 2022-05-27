@@ -16,7 +16,7 @@
 
 	//si la BDD existe
 	if ($db_found) {
-        $sql1 = "SELECT * FROM medecin WHERE Nom='$recherche'";
+        $sql1 = "SELECT * FROM medecin WHERE Nom_m='$recherche'";
 
 		$resultat = mysqli_query($db_handle, $sql1);
 
@@ -59,8 +59,10 @@
                 echo "<td>" . $data["Ville"] . "</td>";
                 echo "<td>" . $data["Pays"] . "</td>";
                 echo "<td>" . $data["Specialite"] . "</td>";
-                echo "<td>" . $data["Photo"] . "</td>";
-                echo "<td>" . $data["CV"] . "</td>";
+                $image = $data["Photo"];
+				echo "<td><img src='$image' height='200' width='160'></td>";
+                $image = $data["CV"];
+				echo "<td><img src='$image' height='200' width='160'></td>";
                 echo "<td>" . $data["Salle"] . "</td>";
                 echo "<td>" . $data["Calendrier"] . "</td>";
                 echo "</tr>";
@@ -114,8 +116,10 @@
                     echo "<td>" . $data["Ville"] . "</td>";
                     echo "<td>" . $data["Pays"] . "</td>";
                     echo "<td>" . $data["Specialite"] . "</td>";
-                    echo "<td>" . $data["Photo"] . "</td>";
-                    echo "<td>" . $data["CV"] . "</td>";
+                    $image = $data["Photo"];
+                    echo "<td><img src='$image' height='200' width='160'></td>";
+                    $image = $data["CV"];
+                    echo "<td><img src='$image' height='200' width='160'></td>";
                     echo "<td>" . $data["Salle"] . "</td>";
                     echo "<td>" . $data["Calendrier"] . "</td>";
                     echo "</tr>";
@@ -163,7 +167,7 @@
                 $trouvee = true;
             }
 
-            $sql1 = "SELECT DISTINCT s.ID, s.Nom, s.ReglesAvant, s.ReglesApres, s.Salle FROM service s, composition c, laboratoire l WHERE (c.Laboratoire_ID='$laboID' AND c.Service_ID=s.ID)";
+            $sql1 = "SELECT DISTINCT s.ID, s.Nom_s, s.ReglesAvant, s.ReglesApres, s.Salle FROM service s, composition c, laboratoire l WHERE (c.Laboratoire_ID='$laboID' AND c.Service_ID=s.ID)";
             $resultat = mysqli_query($db_handle, $sql1);
 
             if(mysqli_num_rows($resultat)!=0) {
@@ -178,7 +182,7 @@
 
                 while($data = mysqli_fetch_assoc($resultat)) {
                     echo "<tr>";
-                    echo "<td>" . $data["Nom"] . "</td>";
+                    echo "<td>" . $data["Nom_s"] . "</td>";
                     echo "<td>" . $data["ReglesAvant"] . "</td>";
                     echo "<td>" . $data["ReglesApres"] . "</td>";
                     echo "<td>" . $data["Salle"] . "</td>";
@@ -198,8 +202,8 @@
        // sleep(2);
         //  header('Location: RechercheTrouvee.html');
 	} else {
-		sleep(2);
-        header('Location: RechercheErreur.html');
+		//sleep(2);
+        //header('Location: RechercheErreur.html');
 	}
     exit();
 ?>

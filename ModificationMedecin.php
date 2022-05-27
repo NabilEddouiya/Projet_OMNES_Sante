@@ -139,8 +139,10 @@
                                     echo "<td>" . $data["Ville"] . "</td>";
                                     echo "<td>" . $data["Pays"] . "</td>";
                                     echo "<td>" . $data["Specialite"] . "</td>";
-                                    echo "<td>" . $data["Photo"] . "</td>";
-                                    echo "<td>" . $data["CV"] . "</td>";
+                                    $image = $data["Photo"];
+                                    echo "<td><img src='$image' height='200' width='160'></td>";
+                                    $image = $data["CV"];
+                                    echo "<td><img src='$image' height='200' width='160'></td>";
                                     echo "<td>" . $data["Salle"] . "</td>";
                                     echo "<td>" . $data["Calendrier"] . "</td>";
                                     echo "</tr>";
@@ -262,8 +264,10 @@
                                     echo "<td>" . $data["Ville"] . "</td>";
                                     echo "<td>" . $data["Pays"] . "</td>";
                                     echo "<td>" . $data["Specialite"] . "</td>";
-                                    echo "<td>" . $data["Photo"] . "</td>";
-                                    echo "<td>" . $data["CV"] . "</td>";
+                                    $image = $data["Photo"];
+                                    echo "<td><img src='$image' height='200' width='160'></td>";
+                                    $image = $data["CV"];
+                                    echo "<td><img src='$image' height='200' width='160'></td>";
                                     echo "<td>" . $data["Salle"] . "</td>";
                                     echo "<td>" . $data["Calendrier"] . "</td>";
                                     echo "</tr>";
@@ -339,8 +343,10 @@
                                     echo "<td>" . $data["Ville"] . "</td>";
                                     echo "<td>" . $data["Pays"] . "</td>";
                                     echo "<td>" . $data["Specialite"] . "</td>";
-                                    echo "<td>" . $data["Photo"] . "</td>";
-                                    echo "<td>" . $data["CV"] . "</td>";
+                                    $image = $data["Photo"];
+                                    echo "<td><img src='$image' height='200' width='160'></td>";
+                                    $image = $data["CV"];
+                                    echo "<td><img src='$image' height='200' width='160'></td>";
                                     echo "<td>" . $data["Salle"] . "</td>";
                                     echo "<td>" . $data["Calendrier"] . "</td>";
                                     echo "</tr>";
