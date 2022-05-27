@@ -29,6 +29,7 @@
             </div>
         </nav>
 
+        <div class="center">
         <?php
             session_start();
 
@@ -191,5 +192,6 @@
             }
             echo "Si vous voulez supprimer une carte bancaire envoyer un mail à <a href='test@gmail.com'>test@gmail.com</a>"; 
         ?>
+        </div>
     </body>
 </html>
