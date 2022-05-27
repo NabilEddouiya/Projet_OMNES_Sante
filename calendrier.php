@@ -89,11 +89,17 @@
 
                     
 
-                    $data1=mysqli_fetch_assoc($resultat1);
+                    //$data1=mysqli_fetch_assoc($resultat1);
 
                 }
+                echo '</table>';
+                echo '</td>';
 
             }
+            
+            echo '</tr>';
+            echo '</table>';
+            echo '</form>';
         }
         else {
             echo "Ce medecin  n'a pas d'heure de travail cette semaine.";
