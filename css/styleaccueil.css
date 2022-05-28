@@ -11363,17 +11363,3 @@ td{
     border-color: aquamarine;
 }
 
-input[type=submit]{
-	background-color: lightblue;
-	height: 60px;
-	width: 350px;
-	font-size: 20px;
-	margin-right: 40px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	font-weight: bold;
-}
-
-input[type=submit]:hover{
-	color: lightcyan;
-}
