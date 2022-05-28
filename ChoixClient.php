@@ -2,17 +2,6 @@
     session_start();
 ?>
 
-<!--<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,
-        initial-scale=1">
-        <title>Choix Client</title>
-    </head>
-    
-</html>-->
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,10 +24,10 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item active"><a class="nav-link" href="accueil.html">Accueil</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="accueil1.html">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link" href="toutparcourir.html">Tout Parcourir</a></li>
                         <li class="nav-item"><a class="nav-link" href="recherche.html">Recherche</a></li>
-                        <li class="nav-item"><a class="nav-link" href="rendezvous.html">Rendez-Vous</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ConnexionClientRdV.php">Rendez-Vous</a></li>
                         <li class="nav-item"><a class="nav-link" href="compte.html">Compte</a></li>
                     </ul>
                 </div>
