@@ -81,9 +81,9 @@
                         echo "<td>" . $data["Pays"] . "</td>";
                         echo "<td>" . $data["Specialite"] . "</td>";
                         $image = $data["Photo"];
-                        echo "<td><img src='$image' height='200' width='160'></td>";
+                        echo "<td><img src='$image' height='100' width='60'></td>";
                         $image = $data["CV"];
-                        echo "<td><img src='$image' height='200' width='160'></td>";
+                        echo "<td><img src='$image' height='100' width='60'></td>";
                         echo "<td>" . $data["Salle"] . "</td>";
                         echo "<td>" . $data["Calendrier"] . "</td>";
                         echo "</tr>";
