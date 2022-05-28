@@ -89,6 +89,7 @@
             }
             echo "</table><br>";
 
+
             echo "<a href='ContacterMedecin.php'><input type='submit' name='contacter' value='Contacter'></a><br><br>";
             echo "<a href='PrendreRdv.php'><input type='submit' name='RdV' value='Prendre rendez-vous'></a>";
         }
