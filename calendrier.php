@@ -85,7 +85,7 @@ if ($db_found) {
                             echo '      <tr>';
                             echo '        <input type="submit" value="' . $hours[$j] . '"' . $disable . '/><br />';
                             echo '      </tr>';
-                            if($data2 = mysqli_fetch_assoc($resultat2)){}
+                            $data2 = mysqli_fetch_assoc($resultat2);
                             
                         } else {
                             echo '      <tr>';
