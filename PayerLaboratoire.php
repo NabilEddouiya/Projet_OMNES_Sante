@@ -146,11 +146,11 @@
                 $IDconsultation = $data["maxID"] + 1 ;
             }
         }
-        $date = "2022-11-05";
-        $heuredebut = "13:20:00";
-        $heurefin = "14:00:00";
+        $date = "2022-11-05 13:00:00";
+        $weekday = '1';
+        $creneau = '1';
 
-        $sql1 = "INSERT INTO consultation (ID_Consultation,Medecin_ID,Laboratoire_ID,EmailClient,Date,HeureDebut,HeureFin) VALUES('$IDconsultation','0','$labo','$email','$date','$heuredebut','$heurefin')";
+        $sql1 = "INSERT INTO consultation (ID_Consultation,Medecin_ID,EmailClient,date_heure_debut,WeekDay,Creneau,Laboratoire_ID) VALUES('$IDconsultation','$medecin','$email','$date','$weekday','$creneau','0')";
         $resultat = mysqli_query($db_handle, $sql1);
 
         $sql1 = "SELECT * FROM consultation WHERE ID_Consultation='$IDconsultation'";
@@ -161,17 +161,17 @@
             echo '<table border = "1">';
             echo "<tr>";
             echo "<th>" . "Date" . "</th>";
-            echo "<th>" . "Heure de Debut" . "</th>";
-            echo "<th>" . "Heure de Fin" . "</th>";
+            echo "<th>" . "Jour" . "</th>";
+            echo "<th>" . "Creneau" . "</th>";
             echo "</tr>";
 
             while($data = mysqli_fetch_assoc($resultat)) {
 
             echo "<tr>";
             $_SESSION["consultation"] = $data["ID_Consultation"];
-                echo "<td>" . $data["Date"] . "</td>";
-                echo "<td>" . $data["HeureDebut"] . "</td>";
-                echo "<td>" . $data["HeureFin"] . "</td>";
+                echo "<td>" . $data["date_heure_debut"] . "</td>";
+                echo "<td>" . $data["WeekDay"] . "</td>";
+                echo "<td>" . $data["Creneau"] . "</td>";
             echo "</tr>";
             echo "</table><br><br>";
             }
