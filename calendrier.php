@@ -76,13 +76,17 @@ if ($db_found) {
                         }
                     }
                 } else {
+                    $j=0;
                     for ($j = 0; $j < COUNT($hours); $j++) {
-
-                        if ($data2['Creneau'] - 1 == $j && $data2['WeekDay']==$i) {
+                            //solution 1: remplir la base de donnée avec toutes les placres disponible et ensuite les mettre avec un  boolean pour savoir si elles sont libre ou pas et 
+                            //ducoup solution longue casse couille et absolument pas optimisé si il existe une solution permettant d'empecher le message d'erreur de s'afficher si
+                            // $data2 = mysqli_fetch_assoc($resultat2); return null ça serais parfait et empecherais toutes les galères.
+                        if ($data2['Creneau'] - 1 == $j && $data2['WeekDay']==$i && $data2!=null) {
                             echo '      <tr>';
                             echo '        <input type="submit" value="' . $hours[$j] . '"' . $disable . '/><br />';
                             echo '      </tr>';
-                            $data2 = mysqli_fetch_assoc($resultat2);
+                            if($data2 = mysqli_fetch_assoc($resultat2)){}
+                            
                         } else {
                             echo '      <tr>';
                             echo '        <input type="submit" value="' . $hours[$j] . '" /><br />';
