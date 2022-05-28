@@ -56,10 +56,14 @@
                     $sql1 = "SELECT * FROM medecin WHERE (Email='$email')&&(MotdePasse='$mdp')";
 
                     $resultat = mysqli_query($db_handle, $sql1);
+?>
 
+<?php
             if(mysqli_num_rows($resultat)!=0) {
+                        echo '<div class="text-center">';
                         echo "<h1>Affichage de " . $email ." </h1>";
-                        echo '<table border = "1">';
+                        echo "</div>";
+                        echo '<table border = "1" bordercolor=#fff>';
                         echo "<tr>";
                         echo "<th>" . "ID" . "</th>";
                         echo "<th>" . "Prenom" . "</th>";
@@ -79,6 +83,7 @@
                         echo "<th>" . "Calendrier" . "</th>";
             
                         echo "</tr>";
+                        
             
                         while($data = mysqli_fetch_assoc($resultat)) {
                             echo "<tr>";
@@ -110,7 +115,7 @@
                 echo "Erreur:  <br>" . $erreur . "<br>";
             }
         ?>
-        
+
     </body>
 </html>
 

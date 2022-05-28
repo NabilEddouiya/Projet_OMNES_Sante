@@ -28,8 +28,8 @@
                 </div>
             </div>
         </nav>
-
-        <div class="center">
+       <div class="center">
+        <div class="text-center">
         <?php
             session_start();
 
@@ -59,7 +59,8 @@
                 $resultat = mysqli_query($db_handle, $sql1);
 
                 if(mysqli_num_rows($resultat)!=0) {
-                    echo '<table border = "1">';
+                    echo  '<div class= "d-flex justify-content-center">';
+                    echo '<table border = "1" bordercolor=#fff class="text-center">';
                     echo "<tr>";
                     echo "<th>" . "Email" . "</th>";
                     echo "<th>" . "Prenom" . "</th>";
@@ -74,8 +75,10 @@
                     echo "<th>" . "Numéro Carte Vitale" . "</th>";
 
                     echo "</tr>";
+                    echo "</div>";
 
                     while($data = mysqli_fetch_assoc($resultat)) {
+                        
                         echo "<tr>";
                         echo "<td>" . $data["Email"] . "</td>";
                         echo "<td>" . $data["Prenom"] . "</td>";
@@ -104,13 +107,17 @@
                     }
                     echo "</table> <br><br>";
                 }
-
+?>
+</div>
+<div class="text-center">
+<?php
                 $sql1 = "SELECT * FROM cb WHERE EmailClient='$email'";
 
                 $resultat = mysqli_query($db_handle, $sql1);
 
                 if(mysqli_num_rows($resultat)!=0) {
-                    echo '<table border = "1">';
+                    echo  '<div class= "d-flex justify-content-center">';
+                    echo '<table border = "1" bordercolor=#fff>';
                     echo "<tr>";
                     echo "<th>" . "Numéro de la carte" . "</th>";
                     echo "<th>" . "Type" . "</th>";
@@ -118,6 +125,7 @@
                     echo "<th>" . "Date d'expiration" . "</th>";
                     echo "<th>" . "Code" . "</th>";
                     echo "</tr>";
+                    echo "</div>";
 
                     while($data = mysqli_fetch_assoc($resultat)) {
                         echo "<tr>";
@@ -135,9 +143,18 @@
                     }
                     echo "</table> <br><br>";
                 }
+?>
+</div>
+<div class="col">
+    <p></p>
+</div>
+<div class="text-center">
+<?php
+echo '<div class= "d-flex justify-content-center">';
 
                 echo "<form action='ModificationInfosClient.php' method='post'>";
-                    echo "<table border='1'>";
+                
+                    echo "<table border='1' bordercolor=#fff>";
                         echo "<tr>";
                             echo "<td align='center'>Email :</td>";
                             echo "<td><input type='text' name='Email' value='$email'></td>";
@@ -165,7 +182,7 @@
                     echo "</table>";
                     echo "<br>";
 
-                    echo "<table border='1'>";
+                    echo "<table border='1' bordercolor=#fff>";
                         echo "<tr>";
                             echo "<td align='center'>Numero Carte :</td>";
                             echo "<td><input type='text' name='NumeroCarte' value='$numerocarte'></td>";
@@ -180,18 +197,20 @@
                         echo "</tr>";
                     echo "</table>";
                     echo "<br>";
-                    echo "<table border='1'>";
+                    echo "<table border='1' bordercolor=#fff>";
                         echo "<tr>";
                             echo "<td align='center'><input type='submit' name='choix' value='Modifier'></td>";
                         echo "</tr>";
                     echo "</table>";
                 echo "</form>";
+                echo "</div>";
             }
             else {
                 echo "Connexion non réussie <br>";
             }
             echo "Si vous voulez supprimer une carte bancaire envoyer un mail à <a href='test@gmail.com'>test@gmail.com</a>"; 
         ?>
+        </div>
         </div>
     </body>
 </html>

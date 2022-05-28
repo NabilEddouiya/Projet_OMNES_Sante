@@ -43,6 +43,10 @@
     $sql1 = "";
 
     if ($db_found) { 
+        $date = date('y-m-d');
+        //$date2 = new DateTime($date);
+        $timestamp = strtotime($date);
+        $newdate = date("20y-m-d",$timestamp);
         echo "<h1>Rendez-vous à venir</h1>";
         $sql1 = "DELETE FROM consultation WHERE ID_Consultation='$ID'";
         $resultat = mysqli_query($db_handle, $sql1);
@@ -80,8 +84,44 @@
             echo "</table> <br><br>";
         }
         else {
-            echo "pas de résultat";
+            echo "pas de résultat avec un medecin";
         }
+
+        $sql1 = "SELECT DISTINCT c.ID_Consultation,l.Nom,c.Date,c.HeureDebut,c.HeureFin FROM consultation c, laboratoire l WHERE (c.EmailClient='$email' AND c.Date>'$newdate' AND l.ID=c.Laboratoire_ID)";
+                $resultat = mysqli_query($db_handle, $sql1);
+
+                if(mysqli_num_rows($resultat)!=0) {
+                    echo '<table border = "1">';
+                    echo "<tr>";
+                    echo "<th>" . "ID du Rendez-vous" . "</th>";
+                    echo "<th>" . "Nom laboratoire" . "</th>";
+                    echo "<th>" . "Nom patient" . "</th>";
+                    echo "<th>" . "Date" . "</th>";
+                    echo "<th>" . "Heure de début" . "</th>";
+                    echo "<th>" . "Heure de fin" . "</th>";
+                    echo "</tr>";
+
+                    while($data = mysqli_fetch_assoc($resultat)) {
+                        echo "<tr>";
+                        echo "<td>" . $data["ID_Consultation"] . "</td>";
+                        echo "<td>" . $data["Nom"] . "</td>";
+                        echo "<td>" . $nomclient . "</td>";
+                        echo "<td>" . $data["Date"] . "</td>";
+                        echo "<td>" . $data["HeureDebut"] . "</td>";
+                        echo "<td>" . $data["HeureFin"] . "</td>";
+                        echo "</tr>";
+
+                        $ID = $data["ID_Consultation"];
+                        $nomlabo = $data["Nom"];
+                        $date = $data["Date"];
+                        $heuredebut = $data["HeureDebut"];
+                        $heurefin = $data["HeureFin"];
+                    }
+                    echo "</table> <br><br>";
+                }
+                else {
+                    echo "pas de consultation à venir avec un laboratoire";
+                }
     }
 ?>
 </html>

@@ -118,13 +118,52 @@
                 echo "<td>" . $data["Calendrier"] . "</td>";
                 echo "</tr>";
             }
-            echo "</table>";
+            echo "</table><br><br>";
         }
         else {
             echo "Aucune donnée trouvée";
         }
 
+        $sql1 = "SELECT max(ID_Consultation) as maxID FROM consultation";
+        $resultat = mysqli_query($db_handle, $sql1);
 
+        if(mysqli_num_rows($resultat)!=0) {
+
+            while($data = mysqli_fetch_assoc($resultat)) {
+                $IDconsultation = $data["maxID"] + 1 ;
+            }
+        }
+        $date = "2022-11-05 13:00:00";
+        $weekday = '1';
+        $creneau = '1';
+
+        $sql1 = "INSERT INTO consultation (ID_Consultation,Medecin_ID,EmailClient,date_heure_debut,WeekDay,Creneau,Laboratoire_ID) VALUES('$IDconsultation','$medecin','$email','$date','$weekday','$creneau','0')";
+        $resultat = mysqli_query($db_handle, $sql1);
+
+        $sql1 = "SELECT * FROM consultation WHERE ID_Consultation='$IDconsultation'";
+        $resultat = mysqli_query($db_handle, $sql1);
+
+        echo "Aux informations suivantes :";
+        if(mysqli_num_rows($resultat)!=0) {
+            echo '<table border = "1">';
+            echo "<tr>";
+            echo "<th>" . "Date" . "</th>";
+            echo "<th>" . "Jour" . "</th>";
+            echo "<th>" . "Creneau" . "</th>";
+            echo "</tr>";
+
+            while($data = mysqli_fetch_assoc($resultat)) {
+
+            echo "<tr>";
+            $_SESSION["consultation"] = $data["ID_Consultation"];
+                echo "<td>" . $data["date_heure_debut"] . "</td>";
+                echo "<td>" . $data["WeekDay"] . "</td>";
+                echo "<td>" . $data["Creneau"] . "</td>";
+            echo "</tr>";
+            echo "</table><br><br>";
+            }
+        }
+        
 
         echo "<form action='Fin.php' method='post'>";
         echo "<br>Choisissez votre mode de paiement<br>";
