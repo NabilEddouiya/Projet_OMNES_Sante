@@ -31,7 +31,7 @@ if ($db_found) {
     if (mysqli_num_rows($resultat1) != 0) {
 
         echo    '<h1>Calendrier</h1>';
-        echo    '<form method="post" action="reservation.php">';
+        echo    '<form method="post" action="payer.php">';
         echo    '<table border="2">';
         echo    '    <tr>';
         echo    '        <td>Jours</td>';
@@ -67,11 +67,11 @@ if ($db_found) {
                     for ($j = 0; $j < COUNT($hours); $j++) {
                         if($data1['morning'] != 0 && $j < 12||$data1['afternoon'] != 0 && $j >= 12){
                         echo '      <tr>';
-                        echo '        <input type="submit" value="' . $hours[$j] . '"/><br />';
+                        echo '        <input type="submit" value="' . $hours[$j] . '"name="w'.$i.'c'.$j.'"/><br />';
                         echo '      </tr>';
                         }else {
                             echo '      <tr>';
-                            echo '        <input type="submit" value="' . $hours[$j] . '"' . $disable . '/><br />';
+                            echo '        <input type="submit" value="' . $hours[$j] . '"name="w'.$i.'c'.$j.'"' . $disable . '/><br />';
                             echo '      </tr>';
                         }
                     }
@@ -83,13 +83,13 @@ if ($db_found) {
                             // $data2 = mysqli_fetch_assoc($resultat2); return null ça serais parfait et empecherais toutes les galères.
                         if ($data2['Creneau'] - 1 == $j && $data2['WeekDay']==$i && $data2!=null) {
                             echo '      <tr>';
-                            echo '        <input type="submit" value="' . $hours[$j] . '"' . $disable . '/><br />';
+                            echo '        <input type="submit" value="' . $hours[$j] . '"name="w'.$i.'c'.$j.'"' . $disable . '/><br />';
                             echo '      </tr>';
                             $data2 = mysqli_fetch_assoc($resultat2);
                             
                         } else {
                             echo '      <tr>';
-                            echo '        <input type="submit" value="' . $hours[$j] . '" /><br />';
+                            echo '        <input type="submit" value="' . $hours[$j] . '"name="w'.$i.'c'.$j.'" /><br />';
                             echo '      </tr>';
                         }
                     }
