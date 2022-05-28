@@ -150,7 +150,7 @@
         $weekday = '1';
         $creneau = '1';
 
-        $sql1 = "INSERT INTO consultation (ID_Consultation,Medecin_ID,EmailClient,date_heure_debut,WeekDay,Creneau,Laboratoire_ID) VALUES('$IDconsultation','$medecin','$email','$date','$weekday','$creneau','0')";
+        $sql1 = "INSERT INTO consultation (ID_Consultation,Medecin_ID,EmailClient,date_heure_debut,WeekDay,Creneau,Laboratoire_ID) VALUES('$IDconsultation','0','$email','$date','$weekday','$creneau','$labo')";
         $resultat = mysqli_query($db_handle, $sql1);
 
         $sql1 = "SELECT * FROM consultation WHERE ID_Consultation='$IDconsultation'";
