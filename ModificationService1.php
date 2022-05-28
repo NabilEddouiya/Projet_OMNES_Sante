@@ -90,7 +90,7 @@
             while($data = mysqli_fetch_assoc($resultat)) {
                 echo "<tr>";
                 echo "<td>" . $data["ID"] . "</td>";
-                echo "<td>" . $data["Nom"] . "</td>";
+                echo "<td>" . $data["Nom_s"] . "</td>";
                 echo "<td>" . $data["ReglesAvant"] . "</td>";
                 echo "<td>" . $data["ReglesApres"] . "</td>";
                 echo "<td>" . $data["Salle"] . "</td>";
