@@ -5,6 +5,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Omnes Sante</title>
+        <script src= 'https://statics.teams.cdn.office.net/sdk/v2.0.0/js/MicrosoftTeams.min.js'></script>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -57,7 +58,7 @@
             while($data = mysqli_fetch_assoc($resultat)) {
                 echo"<tr>";
                 $email = $data['Email'];
-                echo"<td><a href='$email'>" . $data['Email'] . "</a></td>";
+                echo"<td><a href='mailto:$email'>" . $data['Email'] . "</a></td>";
                 $telephone = $data['Telephone'];
 				echo"<td><a href='$telephone'>" . $data['Telephone'] . "</a></td>";
                 echo"</tr>";
@@ -68,7 +69,11 @@
             echo "Pas trouvé dans la base de données";
         }
         echo"<a href='ChatBox.php'>Chat Box<br></a>";
+        //echo"<script>";
         echo"<a href='Visio.html'>Visioconférence</a>";
+        
+        //echo"app.initialize();";
+        //echo"</script>";
     }
     else {
         echo "Connexion non réussie <br>";

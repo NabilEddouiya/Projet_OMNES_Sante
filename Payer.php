@@ -250,11 +250,6 @@
 
                 echo"<input type='submit' name='Payer' value='Payer'>";
                 echo"</form>";
-
-            }else {
-                echo "Connexion non réussie <br>";
-            }
-            echo "</table> <br><br>";
         }
         else {
             echo "rien trouvé";
