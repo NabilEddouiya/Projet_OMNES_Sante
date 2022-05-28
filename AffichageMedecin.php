@@ -1,4 +1,3 @@
-
 <html>
     <head>
         <meta charset="utf-8" />
@@ -9,7 +8,7 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="BigPicture/css/styles.css" rel="stylesheet" />
+        <link href="css/styleaccueil.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->

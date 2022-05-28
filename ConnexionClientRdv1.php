@@ -1,4 +1,4 @@
-<html lang="en">
+<html>
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -8,7 +8,7 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="BigPicture/css/styleaccueil.css" rel="stylesheet" />
+        <link href="css/styleaccueil.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
