@@ -19,7 +19,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item active"><a class="nav-link" href="accueil.html">Accueil</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="accueil1.html">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link" href="toutparcourir.html">Tout Parcourir</a></li>
                         <li class="nav-item"><a class="nav-link" href="recherche.html">Recherche</a></li>
                         <li class="nav-item"><a class="nav-link" href="rendezvous.html">Rendez-Vous</a></li>

@@ -28,7 +28,7 @@
                 </div>
             </div>
         </nav>
-
+<div class='text-center'>
 <?php
     echo '<meta charset="utf-8">';
     session_start();
@@ -61,6 +61,6 @@
         echo "Connexion non réussie <br>";
     }
 ?>
-
+</div>
 </body>
 </html>
