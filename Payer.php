@@ -56,9 +56,8 @@
                 }
             }
         }
-
-
-
+        echo $Creneau;
+        echo "<br>".$WeekDay;
 
     //identifier votre BDD
     $database = "omnes_sante";
@@ -190,17 +189,21 @@
 
         $date = new DateTime();
         $date_heure_debut="";
-        $date->modify( '+1 days' );
-        echo 'Tomorrow: '.$date->format( 'Y-m-d' ) .' weekday '. $date->format( 'N' )."\n";
-        for($i=0;$i<7;$i++){
+        
+        echo 'Today: '.$date->format( 'Y-m-d' ) .' weekday '. $date->format( 'N' )."<br>";
+
+        for($i=0;$i<=7;$i++){
 
             if($date->format('N')==$WeekDay){
-                $date_heure_debut=$date->format( 'Y-m-d' ).$hours[$creneau].":00";
+                $date_heure_debut=$date->format( 'Y-m-d' )." ".$hours[$Creneau].":00";
+                echo 'Salami';
             }
+            $date->modify( '+1 days' );
             
         }
 
         $sql1 = "INSERT INTO consultation (ID_Consultation,Medecin_ID,EmailClient,date_heure_debut,WeekDay,Creneau,Laboratoire_ID) VALUES('$IDconsultation','$medecin','$email','$date_heure_debut','$WeekDay','$Creneau','0')";
+        echo $sql1;
         $resultat = mysqli_query($db_handle, $sql1);
 
         $sql1 = "SELECT * FROM consultation WHERE ID_Consultation='$IDconsultation'";
