@@ -16,6 +16,7 @@ $sql2 = "";
 $disable = 'disabled="disabled"';
 $i = 2;
 
+
 $hours = array("8:00", "8:20", "8:40", "9:00", "9:20", "9:40", "10:00", "10:20", "10:40", "11:00", "11:20", "11:40", "13:00", "13:20", "13:40", "14:00", "14:20", "14:40", "15:00", "15:20", "15:40");
 
 //si la BDD existe
@@ -55,23 +56,26 @@ if ($db_found) {
             if ($data1['morning'] == 0 && $data1['afternoon'] == 0) {
                 foreach ($hours as $h) {
                     echo '      <tr>';
-                    echo '        <input type="submit" value="' . $h . '" ' . $disable . '/><br />';
+                    echo '        <td><input type="radio" value="nothing" ' . $disable . 'name="choix"/><br /></td>';
+                    echo '        <td>'.$h.'</td>';
                     echo '      </tr>';
                 }
             }
             //si travail ce jour la
             else {
-                //si pas de rdv ce jour la affichage normale avec bouton submit disponible
+                //si pas de rdv ce jour la affichage normale avec bouton radio disponible
                 if ($data2['WeekDay'] != $i ) {
                     //verifie si il travaille le matin ou l'apres-midi et affiche en consequence
                     for ($j = 0; $j < COUNT($hours); $j++) {
                         if($data1['morning'] != 0 && $j < 12||$data1['afternoon'] != 0 && $j >= 12){
                         echo '      <tr>';
-                        echo '        <input type="submit" value="' . $hours[$j] . '"name="w'.$i.'c'.$j.'"/><br />';
+                        echo '        <td><input type="radio" value="'.$i.$j.'"name="choix"/><br /></td>';
+                        echo '        <td>'.$hours[$j].'</td>';
                         echo '      </tr>';
                         }else {
                             echo '      <tr>';
-                            echo '        <input type="submit" value="' . $hours[$j] . '"name="w'.$i.'c'.$j.'"' . $disable . '/><br />';
+                            echo '        <td><input type="radio" value="'.$i.$j.'" ' . $disable . 'name="choix"/><br /></td>';
+                            echo '        <td>'.$hours[$j].'</td>';
                             echo '      </tr>';
                         }
                     }
@@ -81,15 +85,17 @@ if ($db_found) {
                             //solution 1: remplir la base de donnée avec toutes les placres disponible et ensuite les mettre avec un  boolean pour savoir si elles sont libre ou pas et 
                             //ducoup solution longue casse couille et absolument pas optimisé si il existe une solution permettant d'empecher le message d'erreur de s'afficher si
                             // $data2 = mysqli_fetch_assoc($resultat2); return null ça serais parfait et empecherais toutes les galères.
-                        if ($data2['Creneau'] - 1 == $j && $data2['WeekDay']==$i && $data2!=null) {
+                        if ($data2['Creneau'] == $j && $data2['WeekDay']==$i && $data2!=null) {
                             echo '      <tr>';
-                            echo '        <input type="submit" value="' . $hours[$j] . '"name="w'.$i.'c'.$j.'"' . $disable . '/><br />';
+                            echo '        <td><input type="radio" value="'.$i.$j.'" ' . $disable . 'name="choix"/><br /></td>';
+                            echo '        <td>'.$hours[$j].'</td>';
                             echo '      </tr>';
                             $data2 = mysqli_fetch_assoc($resultat2);
                             
                         } else {
                             echo '      <tr>';
-                            echo '        <input type="submit" value="' . $hours[$j] . '"name="w'.$i.'c'.$j.'" /><br />';
+                            echo '        <td><input type="radio" value="'.$i.$j.'"name="choix"/><br /></td>';
+                            echo '        <td>'.$hours[$j].'</td>';
                             echo '      </tr>';
                         }
                     }
@@ -99,11 +105,22 @@ if ($db_found) {
             echo '</td>';
             $i++;
         }
-    } else {
+
+     echo'   <tr>';
+     echo '     <td colspan="6" align="center">';
+     echo '       <input type="submit" value="reserver la seance">';
+     echo '     </td>';
+     echo '   </tr>';
+     echo ' </table>';
+    echo '</form>';
+    
+} else {
         echo "Ce medecin  n'a pas d'heure de travail cette semaine.";
     }
+
+    
+
 } else {
     echo "Connexion non réussie <br>";
 }
-
 ?>
