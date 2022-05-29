@@ -11354,3 +11354,23 @@ td{
     border-color: aquamarine;
 }
 
+#carouselExampleCaptions .carousel-item img {  
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  height:100vh;
+}
+
+#carouselExampleCaptions .carousel-item:before {
+  content: "";
+  background-image:
+    linear-gradient(
+      to bottom,
+      transparent, rgba(0,0,0,0.5)
+    );
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
