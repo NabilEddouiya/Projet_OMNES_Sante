@@ -287,6 +287,6 @@
         echo "Connexion non réussie <br>";
     }
 }
-?>
+    ?>
 </body>
 </html>

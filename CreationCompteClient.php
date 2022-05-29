@@ -99,7 +99,7 @@
                     if(mysqli_num_rows($resultat)!=0) {
                         echo "ajout réussi";
                         sleep(1);
-                        header('Location: ChoixClient.html');
+                        header('Location: ChoixClient.php');
                     }
                     else {
                         "ajout raté";
