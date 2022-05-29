@@ -5,10 +5,11 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Omnes Sante</title>
+        <script src= 'https://statics.teams.cdn.office.net/sdk/v2.0.0/js/MicrosoftTeams.min.js'></script>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="BigPicture/css/styleaccueil.css" rel="stylesheet" />
+        <link href="css/styleaccueil.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -22,7 +23,7 @@
                         <li class="nav-item active"><a class="nav-link" href="accueil1.html">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link" href="toutparcourir.html">Tout Parcourir</a></li>
                         <li class="nav-item"><a class="nav-link" href="recherche.html">Recherche</a></li>
-                        <li class="nav-item"><a class="nav-link" href="rendezvous.html">Rendez-Vous</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ConnexionClientRdV.php">Rendez-Vous</a></li>
                         <li class="nav-item"><a class="nav-link" href="compte.html">Compte</a></li>
                     </ul>
                 </div>
@@ -57,7 +58,7 @@
             while($data = mysqli_fetch_assoc($resultat)) {
                 echo"<tr>";
                 $email = $data['Email'];
-                echo"<td><a href='$email'>" . $data['Email'] . "</a></td>";
+                echo"<td><a href='mailto:$email'>" . $data['Email'] . "</a></td>";
                 $telephone = $data['Telephone'];
 				echo"<td><a href='$telephone'>" . $data['Telephone'] . "</a></td>";
                 echo"</tr>";
@@ -68,7 +69,11 @@
             echo "Pas trouvé dans la base de données";
         }
         echo"<a href='ChatBox.php'>Chat Box<br></a>";
+        //echo"<script>";
         echo"<a href='Visio.html'>Visioconférence</a>";
+        
+        //echo"app.initialize();";
+        //echo"</script>";
     }
     else {
         echo "Connexion non réussie <br>";

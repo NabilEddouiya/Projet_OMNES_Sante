@@ -11342,15 +11342,6 @@ h1{
     font-size: 40px;
 }
 
-img{
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
-	height: 230px;
-	width: 450px;
-	line-height: 150px;
-	margin: auto;
-}
 
 table{
     border-spacing: 10px;
@@ -11363,17 +11354,23 @@ td{
     border-color: aquamarine;
 }
 
-input[type=submit]{
-	background-color: lightblue;
-	height: 60px;
-	width: 350px;
-	font-size: 20px;
-	margin-right: 40px;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	font-weight: bold;
+#carouselExampleCaptions .carousel-item img {  
+  object-fit: cover;
+  object-position: center;
+  overflow: hidden;
+  height:100vh;
 }
 
-input[type=submit]:hover{
-	color: lightcyan;
+#carouselExampleCaptions .carousel-item:before {
+  content: "";
+  background-image:
+    linear-gradient(
+      to bottom,
+      transparent, rgba(0,0,0,0.5)
+    );
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
 }

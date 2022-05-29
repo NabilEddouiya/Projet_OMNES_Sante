@@ -9,7 +9,7 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="BigPicture/css/styleaccueil.css" rel="stylesheet" />
+        <link href="css/styleaccueil.css" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
@@ -23,7 +23,7 @@
                         <li class="nav-item active"><a class="nav-link" href="accueil1.html">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link" href="toutparcourir.html">Tout Parcourir</a></li>
                         <li class="nav-item"><a class="nav-link" href="recherche.html">Recherche</a></li>
-                        <li class="nav-item"><a class="nav-link" href="rendezvous.html">Rendez-Vous</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ConnexionClientRdV.php">Rendez-Vous</a></li>
                         <li class="nav-item"><a class="nav-link" href="compte.html">Compte</a></li>
                     </ul>
                 </div>
