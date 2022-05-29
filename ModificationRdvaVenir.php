@@ -51,7 +51,7 @@
         $sql1 = "DELETE FROM consultation WHERE ID_Consultation='$ID'";
         $resultat = mysqli_query($db_handle, $sql1);
 
-        $sql1 = "SELECT DISTINCT c.ID_Consultation,m.Nom_m,cl.Nom,c.Date,c.HeureDebut,c.HeureFin FROM consultation c, client cl, medecin m WHERE (cl.Email=c.EmailClient AND cl.Email='$email' AND c.Medecin_ID=m.ID)";
+        $sql1 = "SELECT DISTINCT c.ID_Consultation,m.Nom_m,cl.Nom,c.date_heure_debut,c.WeekDay,c.Creneau FROM consultation c, client cl, medecin m WHERE (cl.Email=c.EmailClient AND cl.Email='$email' AND c.Medecin_ID=m.ID)";
         $resultat = mysqli_query($db_handle, $sql1);
         if(mysqli_num_rows($resultat)!=0) {
             echo '<table border = "1">';
@@ -59,9 +59,9 @@
             echo "<th>" . "ID du Rendez-vous" . "</th>";
             echo "<th>" . "Nom medecin" . "</th>";
             echo "<th>" . "Nom patient" . "</th>";
-            echo "<th>" . "Date" . "</th>";
-            echo "<th>" . "Heure de début" . "</th>";
-            echo "<th>" . "Heure de fin" . "</th>";
+            echo "<th>" . "date_heure_debut" . "</th>";
+            echo "<th>" . "WeekDay" . "</th>";
+            echo "<th>" . "Creneau" . "</th>";
             echo "</tr>";
 
             while($data = mysqli_fetch_assoc($resultat)) {
@@ -69,17 +69,17 @@
                 echo "<td>" . $data["ID_Consultation"] . "</td>";
                 echo "<td>" . $data["Nom_m"] . "</td>";
                 echo "<td>" . $data["Nom"] . "</td>";
-                echo "<td>" . $data["Date"] . "</td>";
-                echo "<td>" . $data["HeureDebut"] . "</td>";
-                echo "<td>" . $data["HeureFin"] . "</td>";
+                echo "<td>" . $data["date_heure_debut"] . "</td>";
+                echo "<td>" . $data["WeekDay"] . "</td>";
+                echo "<td>" . $data["Creneau"] . "</td>";
                 echo "</tr>";
 
                 $ID = $data["ID_Consultation"];
                 $nommedecin = $data["Nom_m"];
                 $nomclient = $data["Nom"];
-                $date = $data["Date"];
-                $heuredebut = $data["HeureDebut"];
-                $heurefin = $data["HeureFin"];
+                $date = $data["date_heure_debut"];
+                $heuredebut = $data["WeekDay"];
+                $heurefin = $data["Creneau"];
             }
             echo "</table> <br><br>";
         }
@@ -87,7 +87,7 @@
             echo "pas de résultat avec un medecin";
         }
 
-        $sql1 = "SELECT DISTINCT c.ID_Consultation,l.Nom,c.Date,c.HeureDebut,c.HeureFin FROM consultation c, laboratoire l WHERE (c.EmailClient='$email' AND c.Date>'$newdate' AND l.ID=c.Laboratoire_ID)";
+        $sql1 = "SELECT DISTINCT c.ID_Consultation,l.Nom,c.date_heure_debut,c.WeekDay,c.Creneau FROM consultation c, laboratoire l WHERE (c.EmailClient='$email' AND c.date_heure_debut>'$newdate' AND l.ID=c.Laboratoire_ID)";
                 $resultat = mysqli_query($db_handle, $sql1);
 
                 if(mysqli_num_rows($resultat)!=0) {
@@ -96,9 +96,9 @@
                     echo "<th>" . "ID du Rendez-vous" . "</th>";
                     echo "<th>" . "Nom laboratoire" . "</th>";
                     echo "<th>" . "Nom patient" . "</th>";
-                    echo "<th>" . "Date" . "</th>";
-                    echo "<th>" . "Heure de début" . "</th>";
-                    echo "<th>" . "Heure de fin" . "</th>";
+                    echo "<th>" . "Date_heure_debut" . "</th>";
+                    echo "<th>" . "WeekDay" . "</th>";
+                    echo "<th>" . "Creneau" . "</th>";
                     echo "</tr>";
 
                     while($data = mysqli_fetch_assoc($resultat)) {
