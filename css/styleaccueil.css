@@ -11344,14 +11344,23 @@ h1{
 
 
 table{
-    border-spacing: 10px;
-    border-color: lightblue;
+    border-spacing: 20px;
+    border-color: white;
     border-radius: 5px;
 }
 td{
     border-spacing: 5px;
     border-radius: 5px;
     border-color: aquamarine;
+    border: 5px solid white;
+}
+
+tr {
+  border: 5px solid white;
+}
+
+th {
+  border: 5px solid white;
 }
 
 #carouselExampleCaptions .carousel-item img {  

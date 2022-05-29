@@ -53,7 +53,7 @@
                 if($erreur == "") {
                     echo"<h1>Merci d'avoir payer vous allez être redirigé vers le menu</h1>";
                     sleep(1);
-                    header('Location: Menu.html');
+                    header('Location: index.html');
                 }
                 else {
                     echo "Il faut choisir un mode de paiement et remplir les informations suivantes<br>";
@@ -63,7 +63,7 @@
             else {
                 echo"<h1>Merci d'avoir payer vous allez être redirigé vers le menu</h1>";
                 sleep(1);
-                header('Location: Menu.html');
+                header('Location: index.html');
             }
         ?>
     </body>

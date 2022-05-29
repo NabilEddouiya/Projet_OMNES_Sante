@@ -249,11 +249,35 @@
                         echo "</tr>";
                     echo "</table>";
 
-                echo"<input type='submit' name='Payer' value='Payer'>";
-                echo"</form>";
+                //echo"<input type='submit' name='Payer' value='Payer'>";
+                echo '<div class="container px-4 px-lg-5">';
+                echo '<div class="row d-flex justify-content-center">';
+                echo '<div class="col-lg-6">';
+                echo '<div class="form-logine">';
+                echo '<div class="row d-flex justify-content-center">';
+                echo '<div  class="btn-group-vertical">';
+                echo "<input type='submit' name='Payer' value='Soumettre' class='btn btn-primary'>";
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+                echo "&nbsq";
+                echo "&nbsq";
+                echo "&nbsq";
+                echo "&nbsq";
+                echo "&nbsq";
+                echo "&nbsq";
+                echo "&nbsq";
+                echo "&nbsq";
+                echo "&nbsq";
+                echo "</form>";
+                //echo"</form>";
         }else {
             echo "Connexion non réussie <br>";
         }
+        
 ?>
 </body>
 </html>

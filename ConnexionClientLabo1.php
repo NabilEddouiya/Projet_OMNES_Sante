@@ -68,7 +68,7 @@
                                 </div>
                             </div>
 
-                            <p>Vous n'avez pas de compte.<a href="VotreCompte.html">Retouner à l'accueil pour le créer dans l'onglet votre compte</a></p>
+                            <p>Vous n'avez pas de compte.<a href="index.html">Retouner à l'accueil pour le créer dans l'onglet votre compte</a></p>
                         </form>
                     </div>
                 </div>

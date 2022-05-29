@@ -22,7 +22,7 @@
                         <li class="nav-item active"><a class="nav-link" href="accueil1.html">Accueil</a></li>
                         <li class="nav-item"><a class="nav-link" href="toutparcourir.html">Tout Parcourir</a></li>
                         <li class="nav-item"><a class="nav-link" href="recherche.html">Recherche</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ConnexionClientRdV.php">Rendez-Vous</a></li>
+                        <li class="nav-item"><a class="nav-link" href="rendezvous.html">Rendez-Vous</a></li>
                         <li class="nav-item"><a class="nav-link" href="compte.html">Compte</a></li>
                     </ul>
                 </div>

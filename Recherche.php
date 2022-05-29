@@ -53,8 +53,6 @@
 
         if(mysqli_num_rows($resultat)!=0) {
             echo "<h1>Affichage des médecins</h1>";
-		    echo "<p>Requete: " . $sql1 . "<br>";
-		    echo "Resultat: </p>";
             echo '<table border = "1">';
             echo "<tr>";
             echo "<th>" . "ID" . "</th>";
@@ -112,8 +110,6 @@
 
             if(mysqli_num_rows($resultat)!=0) {
                 echo "<h1>Affichage des spécialités </h1>";
-                echo "<p>Requete: " . $sql1 . "<br>";
-                echo "Resultat: </p>";
                 echo '<table border = "1">';
                 echo "<tr>";
                 echo "<th>" . "ID" . "</th>";
