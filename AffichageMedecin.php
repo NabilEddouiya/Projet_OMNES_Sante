@@ -90,7 +90,7 @@
 
 
             echo "<a href='ContacterMedecin.php'><input type='submit' name='contacter' value='Contacter'></a><br><br>";
-            echo "<a href='PrendreRdv.php'><input type='submit' name='RdV' value='Prendre rendez-vous'></a>";
+            echo "<a href='calendrier.php'><input type='submit' name='RdV' value='Prendre rendez-vous'></a>";
         }
         else {
             echo "Pas trouvé dans la base de données";
@@ -99,6 +99,7 @@
     else {
         echo "Connexion non réussie <br>";
     }
+    
 
 ?>
 

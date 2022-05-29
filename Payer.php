@@ -46,18 +46,16 @@
 
     if(empty($choice)){
         echo'Erreur veuillez choisir une horaire';
-        echo '<a href="Menu.html" class="button">Retour menu</a>';
+        echo '<a href="index.html" class="button">Retour accueil</a>';
     }else{
         for($i=2;$i<6;$i++){
-            for($j=1;$j<COUNT($hours)+1;$j++){
+            for($j=0;$j<COUNT($hours)+1;$j++){
                 if($choice==$i.$j){
                     $WeekDay=$i;
                     $Creneau=$j;
                 }
             }
         }
-        echo $Creneau;
-        echo "<br>".$WeekDay;
 
     //identifier votre BDD
     $database = "omnes_sante";
@@ -190,20 +188,17 @@
         $date = new DateTime();
         $date_heure_debut="";
         
-        echo 'Today: '.$date->format( 'Y-m-d' ) .' weekday '. $date->format( 'N' )."<br>";
 
         for($i=0;$i<=7;$i++){
 
-            if($date->format('N')==$WeekDay){
+            if($date->format('N')+1==$WeekDay){
                 $date_heure_debut=$date->format( 'Y-m-d' )." ".$hours[$Creneau].":00";
-                echo 'Salami';
             }
             $date->modify( '+1 days' );
             
         }
 
         $sql1 = "INSERT INTO consultation (ID_Consultation,Medecin_ID,EmailClient,date_heure_debut,WeekDay,Creneau,Laboratoire_ID) VALUES('$IDconsultation','$medecin','$email','$date_heure_debut','$WeekDay','$Creneau','0')";
-        echo $sql1;
         $resultat = mysqli_query($db_handle, $sql1);
 
         $sql1 = "SELECT * FROM consultation WHERE ID_Consultation='$IDconsultation'";
